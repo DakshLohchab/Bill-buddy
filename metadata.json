@@ -1,0 +1,6 @@
+{
+  "name": "BillBuddy",
+  "description": "BillBuddy detects financial SMS messages, uses Gemini 2.5 Flash to parse amount and merchant, and formats custom UPI pay deep links to split bills and launch WhatsApp with the pre-filled text.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
