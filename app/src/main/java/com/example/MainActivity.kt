@@ -378,6 +378,8 @@ fun BillBuddyContent(modifier: Modifier = Modifier) {
                         onValueChange = { simulatedSmsText = it },
                         textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 13.sp),
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
                             unfocusedBorderColor = Color(0xFFE2E8F0),
                             focusedContainerColor = Color(0xFFF8FAFC),
@@ -520,8 +522,12 @@ fun BillBuddyContent(modifier: Modifier = Modifier) {
                                 label = { Text("Merchant (e.g., Starbucks, Swiggy)", fontSize = 12.sp) },
                                 textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 13.sp),
                                 colors = OutlinedTextFieldDefaults.colors(
+                                    focusedTextColor = Color(0xFF1E293B),
+                                    unfocusedTextColor = Color(0xFF1E293B),
                                     focusedBorderColor = Color(0xFF6750A4),
-                                    unfocusedBorderColor = Color(0xFFE2E8F0)
+                                    unfocusedBorderColor = Color(0xFFE2E8F0),
+                                    focusedLabelColor = Color(0xFF6750A4),
+                                    unfocusedLabelColor = Color(0xFF64748B)
                                 ),
                                 singleLine = true,
                                 modifier = Modifier.fillMaxWidth(),
@@ -536,8 +542,12 @@ fun BillBuddyContent(modifier: Modifier = Modifier) {
                                 label = { Text("Total Bill Amount (₹)", fontSize = 12.sp) },
                                 textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 13.sp),
                                 colors = OutlinedTextFieldDefaults.colors(
+                                    focusedTextColor = Color(0xFF1E293B),
+                                    unfocusedTextColor = Color(0xFF1E293B),
                                     focusedBorderColor = Color(0xFF6750A4),
-                                    unfocusedBorderColor = Color(0xFFE2E8F0)
+                                    unfocusedBorderColor = Color(0xFFE2E8F0),
+                                    focusedLabelColor = Color(0xFF6750A4),
+                                    unfocusedLabelColor = Color(0xFF64748B)
                                 ),
                                 singleLine = true,
                                 modifier = Modifier.fillMaxWidth(),
@@ -635,6 +645,8 @@ fun BillBuddyContent(modifier: Modifier = Modifier) {
                             }
                         },
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
                             unfocusedBorderColor = Color(0xFFE2E8F0)
                         ),
@@ -1268,6 +1280,8 @@ fun StitchDesignedPopUpModal(
                             onValueChange = { vpaAddress = it },
                             textStyle = TextStyle(color = Color(0xFF0F172A), fontSize = 13.sp),
                             colors = OutlinedTextFieldDefaults.colors(
+                                focusedTextColor = Color(0xFF0F172A),
+                                unfocusedTextColor = Color(0xFF0F172A),
                                 focusedBorderColor = Color(0xFF6750A4),
                                 unfocusedBorderColor = Color(0xFFE2E8F0),
                                 focusedContainerColor = Color(0xFFF8FAFC),
@@ -1359,10 +1373,15 @@ fun StitchDesignedPopUpModal(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                    val clip = android.content.ClipData.newPlainText("UPI deep-link", upiURL)
-                                    clipboard.setPrimaryClip(clip)
-                                    Toast.makeText(context, "UPI deep-link copied!", Toast.LENGTH_SHORT).show()
+                                    try {
+                                        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                        val clip = android.content.ClipData.newPlainText("UPI deep-link", upiURL)
+                                        clipboard.setPrimaryClip(clip)
+                                        Toast.makeText(context, "UPI deep-link copied!", Toast.LENGTH_SHORT).show()
+                                    } catch (clipboardEx: Exception) {
+                                        android.util.Log.e("BillBuddy", "Clipboard write failed safety check", clipboardEx)
+                                        Toast.makeText(context, "Unable to copy to clipboard automatically.", Toast.LENGTH_SHORT).show()
+                                    }
                                 }
                         ) {
                             Row(
@@ -1625,7 +1644,7 @@ fun InsightsSection(bills: List<BillEntity>) {
                 }
 
                 Card(
-                    colors = CardColors(containerColor = Color.White, contentColor = Color.Unspecified, disabledContainerColor = Color.Transparent, disabledContentColor = Color.Transparent),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier
                         .weight(1f)

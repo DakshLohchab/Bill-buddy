@@ -115,9 +115,14 @@ fun AuthScreen(modifier: Modifier = Modifier) {
                         label = { Text("Your Full Name") },
                         leadingIcon = { Icon(Icons.Default.Person, contentDescription = "Name") },
                         singleLine = true,
+                        textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
-                            unfocusedBorderColor = Color(0xFFE2E8F0)
+                            unfocusedBorderColor = Color(0xFFE2E8F0),
+                            focusedLabelColor = Color(0xFF6750A4),
+                            unfocusedLabelColor = Color(0xFF64748B)
                         ),
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier.fillMaxWidth().testTag("auth_name_input")
@@ -132,9 +137,14 @@ fun AuthScreen(modifier: Modifier = Modifier) {
                     leadingIcon = { Icon(Icons.Default.Email, contentDescription = "Email") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                    textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Color(0xFF1E293B),
+                        unfocusedTextColor = Color(0xFF1E293B),
                         focusedBorderColor = Color(0xFF6750A4),
-                        unfocusedBorderColor = Color(0xFFE2E8F0)
+                        unfocusedBorderColor = Color(0xFFE2E8F0),
+                        focusedLabelColor = Color(0xFF6750A4),
+                        unfocusedLabelColor = Color(0xFF64748B)
                     ),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.fillMaxWidth().testTag("auth_email_input")
@@ -159,9 +169,14 @@ fun AuthScreen(modifier: Modifier = Modifier) {
                     visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Color(0xFF1E293B),
+                        unfocusedTextColor = Color(0xFF1E293B),
                         focusedBorderColor = Color(0xFF6750A4),
-                        unfocusedBorderColor = Color(0xFFE2E8F0)
+                        unfocusedBorderColor = Color(0xFFE2E8F0),
+                        focusedLabelColor = Color(0xFF6750A4),
+                        unfocusedLabelColor = Color(0xFF64748B)
                     ),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.fillMaxWidth().testTag("auth_password_input")
@@ -177,9 +192,14 @@ fun AuthScreen(modifier: Modifier = Modifier) {
                         visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                        textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
-                            unfocusedBorderColor = Color(0xFFE2E8F0)
+                            unfocusedBorderColor = Color(0xFFE2E8F0),
+                            focusedLabelColor = Color(0xFF6750A4),
+                            unfocusedLabelColor = Color(0xFF64748B)
                         ),
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier.fillMaxWidth().testTag("auth_confirm_password_input")
@@ -361,9 +381,14 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
                     onValueChange = { nameState = it },
                     label = { Text("Display Name") },
                     singleLine = true,
+                    textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Color(0xFF1E293B),
+                        unfocusedTextColor = Color(0xFF1E293B),
                         focusedBorderColor = Color(0xFF6750A4),
-                        unfocusedBorderColor = Color(0xFFE2E8F0)
+                        unfocusedBorderColor = Color(0xFFE2E8F0),
+                        focusedLabelColor = Color(0xFF6750A4),
+                        unfocusedLabelColor = Color(0xFF64748B)
                     ),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.fillMaxWidth().testTag("onboard_name")
@@ -384,9 +409,14 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
                     label = { Text("e.g. jonge@okicici") },
                     placeholder = { Text("yourusername@upi") },
                     singleLine = true,
+                    textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Color(0xFF1E293B),
+                        unfocusedTextColor = Color(0xFF1E293B),
                         focusedBorderColor = Color(0xFF6750A4),
-                        unfocusedBorderColor = Color(0xFFE2E8F0)
+                        unfocusedBorderColor = Color(0xFFE2E8F0),
+                        focusedLabelColor = Color(0xFF6750A4),
+                        unfocusedLabelColor = Color(0xFF64748B)
                     ),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.fillMaxWidth().testTag("onboard_upi")
@@ -413,9 +443,14 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
                     label = { Text("Contact Number") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                    textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Color(0xFF1E293B),
+                        unfocusedTextColor = Color(0xFF1E293B),
                         focusedBorderColor = Color(0xFF6750A4),
-                        unfocusedBorderColor = Color(0xFFE2E8F0)
+                        unfocusedBorderColor = Color(0xFFE2E8F0),
+                        focusedLabelColor = Color(0xFF6750A4),
+                        unfocusedLabelColor = Color(0xFF64748B)
                     ),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.fillMaxWidth().testTag("onboard_phone")
@@ -435,9 +470,14 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
                     onValueChange = { bioState = it },
                     label = { Text("Favorite splitting tagline") },
                     placeholder = { Text("Always split bills cleanly!") },
+                    textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Color(0xFF1E293B),
+                        unfocusedTextColor = Color(0xFF1E293B),
                         focusedBorderColor = Color(0xFF6750A4),
-                        unfocusedBorderColor = Color(0xFFE2E8F0)
+                        unfocusedBorderColor = Color(0xFFE2E8F0),
+                        focusedLabelColor = Color(0xFF6750A4),
+                        unfocusedLabelColor = Color(0xFF64748B)
                     ),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.fillMaxWidth().testTag("onboard_bio")
@@ -662,9 +702,14 @@ fun UserProfileScreen(modifier: Modifier = Modifier) {
                         onValueChange = { editName = it },
                         label = { Text("Display Name") },
                         singleLine = true,
+                        textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
-                            unfocusedBorderColor = Color(0xFFE2E8F0)
+                            unfocusedBorderColor = Color(0xFFE2E8F0),
+                            focusedLabelColor = Color(0xFF6750A4),
+                            unfocusedLabelColor = Color(0xFF64748B)
                         ),
                         shape = RoundedCornerShape(8.dp),
                         modifier = Modifier.fillMaxWidth().testTag("profile_edit_name")
@@ -678,9 +723,14 @@ fun UserProfileScreen(modifier: Modifier = Modifier) {
                         label = { Text("Preferred UPI VPA") },
                         placeholder = { Text("username@upi") },
                         singleLine = true,
+                        textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
-                            unfocusedBorderColor = Color(0xFFE2E8F0)
+                            unfocusedBorderColor = Color(0xFFE2E8F0),
+                            focusedLabelColor = Color(0xFF6750A4),
+                            unfocusedLabelColor = Color(0xFF64748B)
                         ),
                         shape = RoundedCornerShape(8.dp),
                         modifier = Modifier.fillMaxWidth().testTag("profile_edit_upi")
@@ -694,9 +744,14 @@ fun UserProfileScreen(modifier: Modifier = Modifier) {
                         label = { Text("Phone Number") },
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                        textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
-                            unfocusedBorderColor = Color(0xFFE2E8F0)
+                            unfocusedBorderColor = Color(0xFFE2E8F0),
+                            focusedLabelColor = Color(0xFF6750A4),
+                            unfocusedLabelColor = Color(0xFF64748B)
                         ),
                         shape = RoundedCornerShape(8.dp),
                         modifier = Modifier.fillMaxWidth().testTag("profile_edit_phone")
@@ -708,9 +763,14 @@ fun UserProfileScreen(modifier: Modifier = Modifier) {
                         value = editBio,
                         onValueChange = { editBio = it },
                         label = { Text("Profile Headline / Bio") },
+                        textStyle = TextStyle(color = Color(0xFF1E293B), fontSize = 14.sp),
                         colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFF1E293B),
+                            unfocusedTextColor = Color(0xFF1E293B),
                             focusedBorderColor = Color(0xFF6750A4),
-                            unfocusedBorderColor = Color(0xFFE2E8F0)
+                            unfocusedBorderColor = Color(0xFFE2E8F0),
+                            focusedLabelColor = Color(0xFF6750A4),
+                            unfocusedLabelColor = Color(0xFF64748B)
                         ),
                         shape = RoundedCornerShape(8.dp),
                         modifier = Modifier.fillMaxWidth().testTag("profile_edit_bio")

@@ -16,28 +16,32 @@ class SMSReceiver : BroadcastReceiver() {
     )
 
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action == Telephony.Sms.Intents.SMS_RECEIVED_ACTION) {
-            Log.d(TAG, "SMS broadcast filter match triggered!")
-            val messages = Telephony.Sms.Intents.getMessagesFromIntent(intent)
-            if (messages != null) {
-                for (message in messages) {
-                    val sender = message.displayOriginatingAddress ?: "Unknown Sender"
-                    val body = message.displayMessageBody ?: continue
-                    
-                    Log.d(TAG, "SMS Content: Sender=$sender, Body='$body'")
+        try {
+            if (intent.action == Telephony.Sms.Intents.SMS_RECEIVED_ACTION) {
+                Log.d(TAG, "SMS broadcast filter match triggered!")
+                val messages = Telephony.Sms.Intents.getMessagesFromIntent(intent)
+                if (messages != null) {
+                    for (message in messages) {
+                        val sender = message.displayOriginatingAddress ?: "Unknown Sender"
+                        val body = message.displayMessageBody ?: continue
+                        
+                        Log.d(TAG, "SMS Content: Sender=$sender, Body='$body'")
 
-                    // Check if sms body matches any financial pattern (case insensitive)
-                    val bodyLower = body.lowercase()
-                    val matchesPattern = financialPatterns.any { pattern -> bodyLower.contains(pattern) }
+                        // Check if sms body matches any financial pattern (case insensitive)
+                        val bodyLower = body.lowercase()
+                        val matchesPattern = financialPatterns.any { pattern -> bodyLower.contains(pattern) }
 
-                    if (matchesPattern) {
-                        Log.i(TAG, "Financial patterns matched in message body! Initiating Gemini parsing...")
-                        BillBuddyStateManager.handleIncomingSMS(context, sender, body)
-                    } else {
-                        Log.v(TAG, "Skip SMS: No financial patterns matched.")
+                        if (matchesPattern) {
+                            Log.i(TAG, "Financial patterns matched in message body! Initiating Gemini parsing...")
+                            BillBuddyStateManager.handleIncomingSMS(context, sender, body)
+                        } else {
+                            Log.v(TAG, "Skip SMS: No financial patterns matched.")
+                        }
                     }
                 }
             }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error handling incoming SMS broadcast", e)
         }
     }
 }
